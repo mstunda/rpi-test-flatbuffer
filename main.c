@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include "teleop_car_builder.h"
-#include "teleop_types_builder.h"
-#include "teleop_car_reader.h"
-#include "teleop_types_reader.h"
+#include "flatbuf_teleop/src/c_h/teleop_car_builder.h"
+#include "flatbuf_teleop/src/c_h/teleop_types_builder.h"
+#include "flatbuf_teleop/src/c_h/teleop_car_reader.h"
+#include "flatbuf_teleop/src/c_h/teleop_types_reader.h"
 //#include "teleop_car_verifier.h"
 //#include "teleop_types_verifier.h"
-#include "flatbuffers_common_builder.h"
-#include "flatbuffers_common_reader.h"
+#include "flatbuf_teleop/src/c_h/flatbuffers_common_builder.h"
+#include "flatbuf_teleop/src/c_h/flatbuffers_common_reader.h"
 
 // A helper to simplify creating vectors from C-arrays.
 #define c_vec_len(V) (sizeof(V)/sizeof((V)[0]))
