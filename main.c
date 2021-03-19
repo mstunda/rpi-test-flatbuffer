@@ -1,39 +1,21 @@
 #include <stdio.h>
-#include "teleop_car_builder.h"
-#include "teleop_types_builder.h"
-#include "teleop_car_reader.h"
-#include "teleop_types_reader.h"
-//#include "teleop_car_verifier.h"
-//#include "teleop_types_verifier.h"
-#include "flatbuffers_common_builder.h"
-#include "flatbuffers_common_reader.h"
+
+
+#include "flatbuf-teleop/src/c_h/teleop_car_builder.h"
+#include "flatbuf-teleop/src/c_h/teleop_types_builder.h"
+#include "flatbuf-teleop/src/c_h/teleop_car_reader.h"
+#include "flatbuf-teleop/src/c_h/teleop_types_reader.h"
+#include "flatbuf-teleop/src/c_h/flatbuffers_common_builder.h"
+#include "flatbuf-teleop/src/c_h/flatbuffers_common_reader.h"
+
 
 // A helper to simplify creating vectors from C-arrays.
 #define c_vec_len(V) (sizeof(V)/sizeof((V)[0]))
 // This allows us to verify result in optimized builds.
 #define test_assert(x) do { if (!(x)) { assert(0); return -1; }} while(0)
 
-/*
-union Payload {
-	table VehicleControlRequest {
-	    steering_angle:float; // [-1..1]
-	    steering_angle_rear_axle:float; // [-1..1]
-	    acceleration:float; // [-1..1]
-	}
-	
-	table VehicleTelemetryUpdate {
-		velocity:float; // [km/h]
-		actual_angle:float; // [-1..1]
-		actual_angle_rear_axle:float; // [-1..1]
-	}
 
-    CameraRequest,
-    Ping,
-    Pong,
-    EgoPose
-}
 
-*/
 
 int main(int argc, char *argv[]){
 	printf("hi\n");	
@@ -47,7 +29,7 @@ int main(int argc, char *argv[]){
 
 	// Load info to builder
 	
-	float tx_angle_f = 1.1;
+	float tx_angle_f = 1.4;
 	float tx_angle_r = 1.3;
 	float tx_accel = 1.5;
 	
