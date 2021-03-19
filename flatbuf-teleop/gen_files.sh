@@ -14,6 +14,9 @@ C_FILE_FOLDER="src/c"
 rm -rf $C_FILE_FOLDER/*
 flatcc -a -o $C_FILE_FOLDER -I $FBS_FOLDER $COMPILE_FILES
 
+#For Raspberry with flatcc compiled from source (did not succeed yet):
+#~/flatcc/bin/flatcc -a -o $C_FILE_FOLDER -I $FBS_FOLDER $COMPILE_FILES
+
 
 # Dart
 DART_FILE_FOLDER="src/dart"
