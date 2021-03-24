@@ -64,9 +64,13 @@ int main(int argc, char *argv[]){
 	
 	// Send buffer
 	
+	teleop_udp_server_respond(buf, BUFSIZE);		
+	
 	
 	// Receive buffer
-	
+	int rx_buffer_size = 0; 
+	teleop_udp_server_listen(rx_buf, &rx_buffer_size);
+	// ToDo: check if rx_buffer_size is big enough ?
 	
 	// Access Buffer
 	
