@@ -1,0 +1,9 @@
+# Use config tool before making changes: https://zed0.co.uk/clang-format-configurator/
+# Documentation: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+# https://github.com/01org/parameter-framework/blob/master/.clang-format
+
+BasedOnStyle: Google
+
+##### Override Google style settings #####
+IndentWidth:  '4'
+ColumnLimit: '140'

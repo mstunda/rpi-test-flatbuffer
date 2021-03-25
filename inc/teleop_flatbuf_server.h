@@ -2,16 +2,9 @@
 #define TELEOP_FLATBUF_SERVER_API_H
 
 #include "teleop_cmd.h"
-
-#include "teleop_car_builder.h"
-#include "teleop_types_builder.h"
-#include "teleop_car_reader.h"
-#include "teleop_types_reader.h"
-#include "flatbuffers_common_builder.h"
-#include "flatbuffers_common_reader.h"
+#include <stddef.h>
 
 
-flatcc_builder_t builder, *B;
 
 void teleop_flatbuf_init();
 void teleop_flatbuf_reset(void *p_buffer);

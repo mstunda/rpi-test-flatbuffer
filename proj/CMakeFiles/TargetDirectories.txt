@@ -1,0 +1,3 @@
+/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer/proj/CMakeFiles/rebuild_cache.dir
+/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer/proj/CMakeFiles/edit_cache.dir
+/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer/proj/CMakeFiles/udp2can.dir

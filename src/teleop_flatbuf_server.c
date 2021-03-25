@@ -6,6 +6,14 @@
 // This allows us to verify result in optimized builds.
 #define test_assert(x) do { if (!(x)) { assert(0); return -1; }} while(0)
 
+#include "teleop_car_builder.h"
+#include "teleop_types_builder.h"
+#include "teleop_car_reader.h"
+#include "teleop_types_reader.h"
+#include "flatbuffers_common_builder.h"
+#include "flatbuffers_common_reader.h"
+
+flatcc_builder_t builder, *B;
 
 
 // Note that we use the `table_t` suffix when reading a table object
@@ -105,16 +113,3 @@ int teleop_flatbuf_unpack_commanded(states_commanded_s *p_states, void *p_buffer
 
 
 
-
-
-/*
-
-// Create TeleopMsg from Payload
-
-getugo_TeleopMsg_start_as_root(B);
-getugo_TeleopMsg_payload_VehicleControlRequest_add(B, tx_control_request);
-getugo_TeleopMsg_end_as_root(B);
-
-
-
-*/

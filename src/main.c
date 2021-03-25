@@ -4,14 +4,17 @@
 #include "teleop_udp_server.h"
 #include "teleop_flatbuf_server.h"
 
+#define OSX_DEBUGGING
 	
 	// ToDo: check if rx_buffer_size is big enough ?
 
 
 
-
 int main(int argc, char *argv[]){
 	printf("hi\n");	
+	
+	
+	//int port = argc == 2 ? atoi(argv[1]) : SERVICE_PORT;
 			
 	// Buffer variables for UDP				
 	// ToDo: move to udp.h
@@ -32,7 +35,8 @@ int main(int argc, char *argv[]){
 	states_feedback_s states_feedback;
 		
 	// RECEIVE values UDP->FLATBUFFER->Struct
-	while(1){
+	while(1)
+	{
 		printf("While loop begun\n");
 
 

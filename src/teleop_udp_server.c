@@ -9,6 +9,18 @@
 
 #include "teleop_udp_server.h"
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <netdb.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+
+
+
+static int fd = -1;								// socket for udp
+static struct sockaddr_in myaddr, remaddr;	// local addresss
+static socklen_t addrlen;					// address length
 
 
 int teleop_udp_server_init()
@@ -42,8 +54,12 @@ int teleop_udp_server_init()
 
 void teleop_udp_server_listen(char *p_buffer, int *p_recvlength)
 {
+		if(fd == -1){
+			int ret = teleop_udp_server_init();
+		}
+		
 		printf("waiting on port %d\n", SERVICE_PORT);
-		*p_recvlength = recvfrom(fd, p_buffer, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
+		*p_recvlength =  recvfrom(fd, p_buffer, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if (*p_recvlength > 0) { 
 			printf("rx ok!\n"); }
 		else printf("rx failed!\n");
