@@ -52,7 +52,7 @@ int teleop_udp_server_init()
 }
 
 
-void teleop_udp_server_listen(char *p_buffer, int *p_recvlength)
+void teleop_udp_server_listen(unsigned char *p_buffer, int *p_recvlength)
 {
 		if(fd == -1){
 			int ret = teleop_udp_server_init();
@@ -65,7 +65,7 @@ void teleop_udp_server_listen(char *p_buffer, int *p_recvlength)
 		else printf("rx failed!\n");
 }
 
-void teleop_udp_server_report(char *p_buffer, int length)
+void teleop_udp_server_report(unsigned char *p_buffer, int length)
 {
 		printf("sending response \"%s\"\n", p_buffer);
 		if (sendto(fd, p_buffer, length, 0, (struct sockaddr *)&remaddr, addrlen) < 0)

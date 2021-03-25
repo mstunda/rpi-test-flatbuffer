@@ -1,8 +1,11 @@
 #include <stdio.h>
 
+extern "C"{
 #include "teleop_cmd.h"
 #include "teleop_udp_server.h"
 #include "teleop_flatbuf_server.h"
+}
+
 
 #define OSX_DEBUGGING
 	
@@ -18,7 +21,7 @@ int main(int argc, char *argv[]){
 			
 	// Buffer variables for UDP				
 	// ToDo: move to udp.h
-	char rx_buf[BUFSIZE];	// packed flatbuffer received over udp
+	unsigned char rx_buf[BUFSIZE];	// packed flatbuffer received over udp
   	int rx_length;			// received udp length
 	void *tx_buf;			// Gets allocated upon finalizing flatbuffer 
 	size_t tx_length; 		// length of buffer to be sent on udp
@@ -42,7 +45,7 @@ int main(int argc, char *argv[]){
 
 		// RECEIVE COMMAND AND UNPACK
 		teleop_udp_server_listen(rx_buf, &rx_length);
-		printf("Received udp message - ptr: %d, len: %d", (int)rx_buf, (int)rx_length);	
+		printf("Received udp message - ptr: %ld, len: %d", (long)rx_buf, (int)rx_length);	
 		teleop_flatbuf_unpack_commanded(&states_commanded, rx_buf);
 
 #ifdef OSX_DEBUGGING
@@ -61,10 +64,10 @@ int main(int argc, char *argv[]){
 		// PACK FEEDBACK AND SEND
 		// ToDo: remove printfs
 		tx_buf = teleop_flatbuf_pack_feedback(&states_feedback, &tx_length); 
-		printf("Flatbuffer feedback packed. Address: %d, Length: %d \n", 
-												(int)tx_buf, (int)tx_length);
+		printf("Flatbuffer feedback packed. Address: %ld, Length: %d \n", 
+												(long)tx_buf, (int)tx_length);
 
-		teleop_udp_server_report(tx_buf, (int)tx_length);  
+		teleop_udp_server_report((unsigned char *)tx_buf, (int)tx_length);  
 		printf("Flatbuffer sent\n");
 		
 		// Reset buffer 

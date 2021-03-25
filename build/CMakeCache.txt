@@ -149,7 +149,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=udp2can
+CMAKE_PROJECT_NAME:STATIC=udp2fb
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/ranlib
@@ -214,10 +214,10 @@ CMAKE_STRIP:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-udp2can_BINARY_DIR:STATIC=/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer/build
+udp2fb_BINARY_DIR:STATIC=/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer/build
 
 //Value Computed by CMake
-udp2can_SOURCE_DIR:STATIC=/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer
+udp2fb_SOURCE_DIR:STATIC=/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer
 
 
 ########################
