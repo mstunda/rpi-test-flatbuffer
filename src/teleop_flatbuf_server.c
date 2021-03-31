@@ -74,7 +74,7 @@ void* teleop_flatbuf_pack_feedback(	states_feedback_s *p_states,
 	
 	// Create buffer in memory - return pointer
 	p_buffer = flatcc_builder_finalize_aligned_buffer(B, p_length);
-	printf("Flatbuffer just packed. Address: %d \n", (int)p_buffer);
+	printf("Flatbuffer just packed. Address: %ld \n", (long)p_buffer);
 	return p_buffer;
 	
 }

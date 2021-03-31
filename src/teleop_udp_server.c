@@ -61,13 +61,14 @@ void teleop_udp_server_listen(unsigned char *p_buffer, int *p_recvlength)
 		printf("waiting on port %d\n", SERVICE_PORT);
 		*p_recvlength =  recvfrom(fd, p_buffer, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if (*p_recvlength > 0) { 
-			printf("rx ok!\n"); }
+		//	printf("rx ok!\n"); 
+		}
 		else printf("rx failed!\n");
 }
 
 void teleop_udp_server_report(unsigned char *p_buffer, int length)
 {
-		printf("sending response \"%s\"\n", p_buffer);
+	//	printf("sending response");
 		if (sendto(fd, p_buffer, length, 0, (struct sockaddr *)&remaddr, addrlen) < 0)
 			perror("sendto");
 }
