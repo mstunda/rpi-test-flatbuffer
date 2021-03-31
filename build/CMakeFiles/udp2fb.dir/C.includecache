@@ -6,21 +6,3 @@
 
 #IncludeRegexTransform: 
 
-../inc/teleop_udp_server.h
-
-/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer/src/teleop_udp_server.c
-teleop_udp_server.h
-/Users/Stunda/gitrepo-getugo/rpi-test-flatbuffer/src/teleop_udp_server.h
-stdlib.h
--
-stdio.h
--
-string.h
--
-netdb.h
--
-sys/socket.h
--
-arpa/inet.h
--
-

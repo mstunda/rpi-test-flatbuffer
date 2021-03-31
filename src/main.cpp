@@ -1,6 +1,11 @@
 #include <stdio.h>
+#include <thread>
+#include <chrono> 
+#include <unistd.h> // for usleep
 
-extern "C"{
+
+extern "C"
+{
 #include "teleop_cmd.h"
 #include "teleop_udp_server.h"
 #include "teleop_flatbuf_server.h"
@@ -9,14 +14,24 @@ extern "C"{
 
 #define OSX_DEBUGGING
 	
-	// ToDo: check if rx_buffer_size is big enough ?
+void threadPrintTest()
+{
+	while(1)
+	{
+		printf("\n\n Thread Running In Backgrounde \n\n");
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
+	}
+}
 
-
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
 	printf("hi\n");	
 	
-	
+	std::thread t1(threadPrintTest);
+
+
+
 	//int port = argc == 2 ? atoi(argv[1]) : SERVICE_PORT;
 			
 	// Buffer variables for UDP				
@@ -32,10 +47,7 @@ int main(int argc, char *argv[]){
 	// Initialize udp
 	teleop_udp_server_init();
 	
-	// Structures holding current commanded and feedback values
-	// ToDO - make global for callbacks to access
-	states_commanded_s states_commanded;	//@ teleop_cmd.h
-	states_feedback_s states_feedback;
+
 		
 	// RECEIVE values UDP->FLATBUFFER->Struct
 	while(1)
@@ -60,6 +72,7 @@ int main(int argc, char *argv[]){
 							states_commanded.acceleration);	
 #endif
 
+		usleep(100E3);
 
 		// PACK FEEDBACK AND SEND
 		// ToDo: remove printfs
@@ -77,7 +90,7 @@ int main(int argc, char *argv[]){
 
 	}
 	
-	
+	t1.join();
 	
 	return(0);
 }

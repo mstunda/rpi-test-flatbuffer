@@ -13,7 +13,10 @@ typedef struct{
 	float velocity;
 } states_feedback_s;
 
-
+// Structures holding current commanded and feedback values
+// ToDO - make global for callbacks to access
+states_commanded_s states_commanded;	//@ teleop_cmd.h
+states_feedback_s states_feedback;
 
 
 
