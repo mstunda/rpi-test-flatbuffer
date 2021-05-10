@@ -35,4 +35,7 @@ add_executable (udp2fb ${c_files})
 # Indicate which libraries to include during the link process.
 
 message(STATUS "dir ${CMAKE_CURRENT_SOURCE_DIR}")
-target_link_libraries (udp2fb ${CMAKE_CURRENT_SOURCE_DIR}/../flatcc/lib/libflatccrt.a pthread)
+target_link_libraries (
+  udp2fb 
+  ${CMAKE_CURRENT_SOURCE_DIR}/../flatcc/lib/libflatccrt.a 
+  pthread)
